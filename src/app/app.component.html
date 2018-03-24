@@ -1,0 +1,74 @@
+<main *ngIf=profile>
+
+	<section class="info">
+		<mat-card>
+			<div class="left">
+				<p>{{profile.info.name}}</p>
+				<p>{{profile.info.socialNr}}</p>
+				<p>{{profile.info.street}}</p>
+				<p>{{profile.info.city}} {{profile.info.postalNr}}</p>
+				<p>{{profile.info.phoneNr}}</p>
+				<a href="{{profile.info.linkedin}}">{{profile.info.linkedin}}</a>
+			</div>
+			<div class="right">
+				<img [src]="profileUrl | async" />
+			</div>
+		</mat-card>
+
+
+	</section>
+
+	<section class="employments">
+		<mat-card>
+			<div class="employment" *ngFor="let emp of profile.employments">
+				<h3>{{emp.name}}</h3>
+				<p>{{emp.about}}</p>
+				<p>{{emp.start}}</p>
+				<p>{{emp.end}}</p>
+			</div>
+		</mat-card>
+	</section>
+
+	<section class="projects">
+		<mat-card>
+			<div class="projcet" *ngFor="let pro of profile.projects">
+				<h3>{{pro.name}}</h3>
+				<p>{{pro.about}}</p>
+			</div>
+		</mat-card>
+	</section>
+
+	<section class="educations">
+		<mat-card>
+			<div class="education" *ngFor="let edu of profile.educations">
+				<h3>{{edu.name}}</h3>
+				<p>{{edu.about}}</p>
+				<p>{{edu.start}}</p>
+				<p>{{edu.end}}</p>
+			</div>
+		</mat-card>
+	</section>
+
+	<section class="languages">
+		<mat-card>
+			<div class="language" *ngFor="let lan of profile.languages">
+				<p>{{lan}}</p>
+			</div>
+		</mat-card>
+	</section>
+
+	<section class="licenses">
+		<mat-card>
+			<div class="license" *ngFor="let lic of profile.drivingLicenses">
+				<p>{{lic.country}} - {{lic.type}}</p>
+			</div>
+		</mat-card>
+	</section>
+
+	<section class="references">
+		<mat-card>
+			<p>References can be provided on request</p>
+		</mat-card>
+	</section>
+
+</main>
