@@ -15,14 +15,14 @@ import { Profile } from './profile.interface';
 export class AppComponent {
 
 	profile: Profile;
-	profileUrl: Observable<string | "">;
+	profileUrl: Observable<string>;
 
   constructor(private afDatabaseService: AfDatabaseService, private afStorageService: AfStorageService) {
   }
 
   ngOnInit() {
-  	this.afDatabaseService.getProfile().subscribe(profile => this.handleProfile(profile))
-
+  	this.afDatabaseService.getProfile()
+    .subscribe(profile => this.handleProfile(profile))
   	this.profileUrl = this.afStorageService.getProfilePic();
   }
 

@@ -24,6 +24,7 @@ export interface Employment {
 	start: string;
 	end: string;
 	name: string;
+	location: string;
 }
 
 export interface Project {

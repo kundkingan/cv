@@ -1,8 +1,8 @@
 <main *ngIf=profile>
 
-	<section class="info">
+	<section class="profile">
 		<mat-card>
-			<div class="left">
+			<div class="info">
 				<p>{{profile.info.name}}</p>
 				<p>{{profile.info.socialNr}}</p>
 				<p>{{profile.info.street}}</p>
@@ -10,64 +10,72 @@
 				<p>{{profile.info.phoneNr}}</p>
 				<a href="{{profile.info.linkedin}}">{{profile.info.linkedin}}</a>
 			</div>
-			<div class="right">
+			<div class="picture">
 				<img [src]="profileUrl | async" />
-			</div>
-		</mat-card>
-
-
-	</section>
-
-	<section class="employments">
-		<mat-card>
-			<div class="employment" *ngFor="let emp of profile.employments">
-				<h3>{{emp.name}}</h3>
-				<p>{{emp.about}}</p>
-				<p>{{emp.start}}</p>
-				<p>{{emp.end}}</p>
-			</div>
-		</mat-card>
-	</section>
-
-	<section class="projects">
-		<mat-card>
-			<div class="projcet" *ngFor="let pro of profile.projects">
-				<h3>{{pro.name}}</h3>
-				<p>{{pro.about}}</p>
 			</div>
 		</mat-card>
 	</section>
 
 	<section class="educations">
 		<mat-card>
-			<div class="education" *ngFor="let edu of profile.educations">
-				<h3>{{edu.name}}</h3>
-				<p>{{edu.about}}</p>
-				<p>{{edu.start}}</p>
-				<p>{{edu.end}}</p>
+			<p class="s title">Educations</p>
+			<div class="education flex between" *ngFor="let edu of profile.educations">
+				<div class="left">
+					<span class="s header">{{edu.about}}, {{edu.name}}</span>
+				</div>
+				<div class="right">
+					<span class="s header">{{edu.start}} - {{edu.end}}</span>
+				</div>
+			</div>
+		</mat-card>
+	</section>
+
+	<section class="employments">
+		<mat-card>
+			<p class="s title">Employments</p>
+			<div class="employment flex between mt" *ngFor="let emp of profile.employments">
+				<div class="left">
+					<span class="s header">{{emp.name}}, {{emp.location}}</span>
+					<p class="s about">{{emp.about}}</p>
+				</div>
+				<div class="right">
+					<span class="s header">{{emp.start}} - {{emp.end}}</span>
+				</div>
+			</div>
+		</mat-card>
+	</section>
+
+	<section class="projects">
+		<mat-card>
+			<p class="s title">Projects</p>
+			<div class="project" *ngFor="let pro of profile.projects">
+				<span class="s header">{{pro.name}}</span>
+				<p class="s about">{{pro.about}}</p>
 			</div>
 		</mat-card>
 	</section>
 
 	<section class="languages">
 		<mat-card>
+			<p class="s title">Languages</p>
 			<div class="language" *ngFor="let lan of profile.languages">
-				<p>{{lan}}</p>
+				<span class="s header">{{lan}}</span>
 			</div>
 		</mat-card>
 	</section>
 
 	<section class="licenses">
 		<mat-card>
+			<p class="s title">Driving Licenses</p>
 			<div class="license" *ngFor="let lic of profile.drivingLicenses">
-				<p>{{lic.country}} - {{lic.type}}</p>
+				<span class="s header">{{lic.country}} - {{lic.type}}</span>
 			</div>
 		</mat-card>
 	</section>
 
 	<section class="references">
 		<mat-card>
-			<p>References can be provided on request</p>
+			<span class="s header">References can be provided on request</span>
 		</mat-card>
 	</section>
 

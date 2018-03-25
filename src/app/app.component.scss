@@ -1,6 +1,7 @@
 main {
-	max-width: 80%;
+	max-width: 800px;
 	margin: 18px auto 18px auto;
+  padding: 0 18px 0 18px;
 
 	& > * {
 		padding-top: 18px;
@@ -8,24 +9,34 @@ main {
 	}
 }
 
-.info {
+.profile {
 	mat-card {
 		display: flex;
 	}
 }
 
-.left {
+.info {
 	width: 100%;
-}
-
-.right {
-	margin: 0;
-	padding: 0;
-	width: 150px;
-	height: 150px;
-	img {
-		width: 150px;
-		height: 150px;
+	p, a{
+		font-size: 14px;
 	}
 }
 
+.picture {
+	img {
+		width: 150px;
+		height: 150px;
+    border-radius: 100%;
+	}
+}
+
+@media only screen and (max-width: 450px) {
+	.profile {
+		mat-card {
+			flex-direction: column-reverse;
+			.picture {
+				margin: 0 auto;
+			}
+		}
+	}
+}
