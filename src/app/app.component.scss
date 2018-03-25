@@ -11,14 +11,19 @@ main {
 
 .profile {
 	mat-card {
-		display: flex;
-	}
-}
+		max-width: 400px;
+		margin: 0 auto;
+    text-align: center;
+    position: relative;
 
-.info {
-	width: 100%;
-	p, a{
-		font-size: 14px;
+    span {
+    	position: absolute;
+    	top: 10px;
+    	right: 10px;
+    	&:hover {
+    		cursor: pointer;
+    	}
+    }
 	}
 }
 
@@ -30,13 +35,22 @@ main {
 	}
 }
 
-@media only screen and (max-width: 450px) {
-	.profile {
-		mat-card {
-			flex-direction: column-reverse;
-			.picture {
-				margin: 0 auto;
-			}
-		}
+.info {
+	width: 100%;
+	p, a{
+		font-size: 14px;
 	}
 }
+
+
+
+// @media only screen and (max-width: 450px) {
+// 	.profile {
+// 		mat-card {
+// 			flex-direction: column-reverse;
+// 			.picture {
+// 				margin: 0 auto;
+// 			}
+// 		}
+// 	}
+// }

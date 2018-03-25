@@ -9,14 +9,17 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 
 import { MaterialModule } from './material.module';
-
-import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AfDatabaseService } from './_services/af-database.service';
 
+import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -25,9 +28,11 @@ import { AfDatabaseService } from './_services/af-database.service';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [LoginComponent]
 })
 export class AppModule { }

@@ -2,6 +2,11 @@
 
 	<section class="profile">
 		<mat-card>
+
+			<span (click)="onEdit()"><i class="material-icons">mode_edit</i></span>
+			<div class="picture">
+				<img [src]="profileUrl | async" />
+			</div>
 			<div class="info">
 				<p>{{profile.info.name}}</p>
 				<p>{{profile.info.socialNr}}</p>
@@ -9,9 +14,6 @@
 				<p>{{profile.info.city}} {{profile.info.postalNr}}</p>
 				<p>{{profile.info.phoneNr}}</p>
 				<a href="{{profile.info.linkedin}}">{{profile.info.linkedin}}</a>
-			</div>
-			<div class="picture">
-				<img [src]="profileUrl | async" />
 			</div>
 		</mat-card>
 	</section>

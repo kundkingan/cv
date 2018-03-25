@@ -9,6 +9,10 @@ export class AfDatabaseService {
 
   constructor(private db: AngularFireDatabase) { }
 
+  getSampleProfile() {
+  	return this.db.object('profile/sample').valueChanges();
+  }
+
   getProfile() {
   	return this.db.object('profile').valueChanges();
   }
