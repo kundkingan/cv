@@ -37,8 +37,17 @@ main {
 
 .info {
 	width: 100%;
+	margin-top: 18px;
+
 	p, a{
 		font-size: 14px;
+	}
+
+	.row {
+    padding-bottom: 9px;
+		i, label {
+			font-size: 18px;
+		}
 	}
 }
 

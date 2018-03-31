@@ -2,18 +2,27 @@
 
 	<section class="profile">
 		<mat-card>
-
-			<span (click)="onEdit()"><i class="material-icons">mode_edit</i></span>
 			<div class="picture">
 				<img [src]="profileUrl | async" />
 			</div>
 			<div class="info">
-				<p>{{profile.info.name}}</p>
-				<p>{{profile.info.socialNr}}</p>
-				<p>{{profile.info.street}}</p>
-				<p>{{profile.info.city}} {{profile.info.postalNr}}</p>
-				<p>{{profile.info.phoneNr}}</p>
-				<a href="{{profile.info.linkedin}}">{{profile.info.linkedin}}</a>
+				<div class="row">
+					<mat-icon>face</mat-icon>
+					<label>{{profile.info.name}}</label>
+				</div>
+				<div class="row">
+					<label><i class="material-icons">security</i></label>
+					<label>{{profile.info.socialNr}}</label>
+				</div>
+				<div class="row">
+					<i class="material-icons">place</i>
+					<label>{{profile.info.street}}, {{profile.info.city}}</label>
+				</div>
+				<div class="row">
+					<i class="material-icons">phone</i>
+					<label>{{profile.info.phoneNr}}</label>
+				</div>
+				<a href="{{profile.info.linkedin}}">Linkedin</a>
 			</div>
 		</mat-card>
 	</section>
@@ -21,9 +30,10 @@
 	<section class="educations">
 		<mat-card>
 			<p class="s title">Educations</p>
-			<div class="education flex between" *ngFor="let edu of profile.educations">
+			<div class="education flex between mt" *ngFor="let edu of profile.educations">
 				<div class="left">
-					<span class="s header">{{edu.about}}, {{edu.name}}</span>
+					<span class="s header">{{edu.name}}, {{edu.location}}</span>
+					<p class="s about">{{edu.about}}</p>
 				</div>
 				<div class="right">
 					<span class="s header">{{edu.start}} - {{edu.end}}</span>
@@ -50,9 +60,9 @@
 	<section class="projects">
 		<mat-card>
 			<p class="s title">Projects</p>
-			<div class="project" *ngFor="let pro of profile.projects">
+			<div class="project mt" *ngFor="let pro of profile.projects">
 				<span class="s header">{{pro.name}}</span>
-				<p class="s about">{{pro.about}}</p>
+				<p class="s about mb">{{pro.about}}</p>
 			</div>
 		</mat-card>
 	</section>
