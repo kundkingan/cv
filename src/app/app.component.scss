@@ -1,7 +1,7 @@
 main {
 	max-width: 800px;
 	margin: 18px auto 18px auto;
-  padding: 0 18px 0 18px;
+	padding: 0 18px 0 18px;
 
 	& > * {
 		padding-top: 18px;
@@ -9,57 +9,47 @@ main {
 	}
 }
 
-.profile {
-	mat-card {
-		max-width: 400px;
-		margin: 0 auto;
-    text-align: center;
-    position: relative;
+.profile  mat-card {
+	max-width: 400px;
+	margin: 0 auto;
+	text-align: center;
+	position: relative;
 
-    span {
-    	position: absolute;
-    	top: 10px;
-    	right: 10px;
-    	&:hover {
-    		cursor: pointer;
-    	}
-    }
+	.edit {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		&:hover { cursor: pointer }
 	}
-}
 
-.picture {
-	img {
+	.picture  img {
 		width: 150px;
 		height: 150px;
-    border-radius: 100%;
-	}
-}
-
-.info {
-	width: 100%;
-	margin-top: 18px;
-
-	p, a{
-		font-size: 14px;
+		border-radius: 100%;
 	}
 
-	.row {
-    padding-bottom: 9px;
-		i, label {
-			font-size: 18px;
+	.info {
+		width: 100%;
+		margin-top: 18px;
+
+		.row {
+			mat-icon {
+				position: relative;
+				top: 2px;
+			}
+
+			mat-icon, label { font-size: 18px }
+			&:not(:last-child) { padding-bottom: 18px }
+		}
+
+		.links {
+			& > * { margin: 5px }
+			a:hover { cursor: pointer }
 		}
 	}
 }
 
-
-
-// @media only screen and (max-width: 450px) {
-// 	.profile {
-// 		mat-card {
-// 			flex-direction: column-reverse;
-// 			.picture {
-// 				margin: 0 auto;
-// 			}
-// 		}
-// 	}
-// }
+.left {
+	width: 70%;
+	p { margin-bottom: 0 }
+}

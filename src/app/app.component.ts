@@ -10,35 +10,33 @@ import { Profile } from './profile.interface';
 import { LoginComponent } from './login/login.component';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  providers: [AfDatabaseService, AfStorageService]
+	selector: 'app-root',
+	templateUrl: './app.component.html',
+	styleUrls: ['./app.component.scss'],
+	providers: [AfDatabaseService, AfStorageService]
 })
 export class AppComponent {
 
 	profile: Profile;
 	profileUrl: Observable<string>;
 
-  constructor(
-    private afDatabaseService: AfDatabaseService,
-    private afStorageService: AfStorageService,
-    public dialog: MatDialog)
-  {
+	constructor(
+		private afDatabaseService: AfDatabaseService,
+		private afStorageService: AfStorageService,
+		public dialog: MatDialog)
+	{ }
 
-  }
+	ngOnInit() {
+		this.afDatabaseService.getSampleProfile()
+		.subscribe(profile => this.handleProfile(profile))
+		this.profileUrl = this.afStorageService.getProfilePic();
+	}
 
-  ngOnInit() {
-  	this.afDatabaseService.getSampleProfile()
-    .subscribe(profile => this.handleProfile(profile))
-  	this.profileUrl = this.afStorageService.getProfilePic();
-  }
+	onEdit() {
+		this.dialog.open(LoginComponent)
+	}
 
-  onEdit() {
-    this.dialog.open(LoginComponent)
-  }
-
-  private handleProfile(profile) {
-  	this.profile = profile;
-  }
+	private handleProfile(profile) {
+		this.profile = profile;
+	}
 }

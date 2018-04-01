@@ -12,6 +12,7 @@ export interface Info {
 	age: number;
 	city: string;
 	linkedin: string;
+	github: string;
 	name: string;
 	phoneNr: string;
 	postalNr: number;
@@ -30,6 +31,8 @@ export interface Employment {
 export interface Project {
 	about: string;
 	name: string;
+	end: string;
+	start: string;
 }
 
 export interface Education {
